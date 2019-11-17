@@ -1,0 +1,77 @@
+<div class="ui container">
+<%#= form_tag quotation_path,:method=>'get' do %>
+
+<!--  Quote <%#= text_field_tag :search,params[:search] %>-->
+  <%#= submit_tag 'Search' %>
+<%# end %>
+<%= form_tag index_path,:method=>'get' do %>
+
+  Quote <%= text_field_tag :search,params[:search] %>
+  <%= submit_tag 'Search' %>
+<% end %>
+<hr/><br/>
+
+<fieldset>
+  <legend>File Upload</legend>
+<%= form_tag uploadFile_path ,:multipart => true do %>
+  <p><label for="upload_file">Select File</label>
+    <%= file_field 'upload', 'datafile' %></p>
+  <%= submit_tag "Upload" %>
+<% end %>
+</fieldset>
+<br/>
+<hr/>
+<%= link_to "export XML",export_path%>
+<hr/>
+<fieldset>
+<legend><h3>Quotations</h3></legend>
+<ul>
+  <% for quotation in @quotations %>
+    <li><%= h quotation.author_name %>: <%= h quotation.quote %></li>
+  <% end %>
+</ul>
+<br/>
+<% if params[:sort_by] == "date" %>
+  <%= link_to "Sort by category", :action => :quotation, :sort_by => :category %>
+<% else %>
+  <%= link_to "Sort by date", :action => :quotation, :sort_by => :date %>
+<% end %>
+</fieldset>
+<hr/>
+<h3>New quotation</h3>
+<%#= form_for @quotation, :url => { :action => :quotation } do |form| %>
+<%= form_with(model:@quotation , local: true, :url => { :action => :quotation }) do |form| %>
+  <%#if @quotation.errors.any? %>
+    <% @quotation.errors.full_messages.each do |message| %>
+      <%= message %>
+      <%end %>
+    <%#end %>
+  <fieldset>
+    <legend>Enter details</legend>
+    <div class="form_row">
+      <%= form.label :author_name %>
+      <%= form.text_field :author_name, :size => 20, :maxlength => 40 %>
+    </div>
+    <div class="form_row">
+      <%= form.label :"New Category" %>
+      <%= form.select :category2, Quotation.pluck(:category).uniq,include_blank: true %>
+    </div>
+    <div class="form_row">
+      <%= form.label :category %>
+      <%= form.text_field :category, :size => 20, :maxlength => 40 %>
+    </div>
+<!--    <div class="form_row">-->
+      <%#= form.label :"New Category" %>
+      <%#= form.select :category, Quotation.pluck(:category).uniq,include_blank: true %>
+<!--    </div>-->
+    <div class="form_row">
+      <%= form.label :quote %>
+      <%= form.text_area :quote, :rows => 2, :cols => 40, :maxlength => 500 %>
+    </div>
+  </fieldset>
+  <p>
+  <div class="form_row">
+    <%= form.submit 'Create' %>
+  </div>
+  </p>
+<% end %></div>

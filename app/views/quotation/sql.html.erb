@@ -1,0 +1,4 @@
+<%#= File.read("/ps2ps2/app/public/basic.txt") %>
+<% @file.split(/\n/).each do |line| %>
+  <pre><%= line %></pre>
+<% end %>

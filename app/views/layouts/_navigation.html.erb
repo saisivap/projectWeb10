@@ -1,0 +1,100 @@
+<!--<a class=" item" href="/document">-->
+<!--  Documnet-->
+<!--</a>-->
+<!--<a class="item" href="/site/index">-->
+<!--  WEB10-->
+<!--</a>-->
+<!--<div class="right menu">-->
+<!--  <div class="ui dropdown item">-->
+<!--    Basics <i class="dropdown icon"></i>-->
+<!--    <div class="menu">-->
+
+      <%# if user_signed_in? %>
+<!--        <div class="item">-->
+<!--        <a class="item"  href="/quotation" >Basics 2</a>-->
+<!--        <a class="item"  href="/site/ps1" >Basics 1</a>-->
+<!--        <a class="item" href="/document">Document</a>-->
+<!--        <div class="divider"></div>-->
+<!--        <a class="item" data-method="delete" href="/logout" ><i class="sign out alternate icon"></i>Log Out</a>-->
+<!--        <a class="item"  href="/edit" ><i class="edit icon"></i>Edit Account</a>-->
+<!--        </div>-->
+
+      <%#else%>
+<!--        <div class="item">-->
+<!--        <a class="item" href=/quotation/ps2>Basics 2</a>-->
+<!--        <a class="item" href="/site/ps1">Basics 1</a>-->
+<!--        <a class="item" href="/document">Document</a>-->
+<!--        <div class="divider"></div>-->
+<!--        <a class="item"  href="/login" ><i class="sign-in icon"></i></i>Log IN</a>-->
+<!--        </div>-->
+      <%#end %>
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="item">-->
+    <%# if user_signed_in? %>
+<!--      <div class="middle aligned content">-->
+<!--        <div class="header">-->
+<!--          <i class="like icon"></i>-->
+          <%#=current_user.name %>
+<!--        </div>-->
+<!--      </div>-->
+<!--          <p><%#="#{current_user.first_name} #{current_user.last_name}"%></p>-->
+<!--          <p><%#=current_user.first_name +" "+ current_user.last_name %></p>-->
+    <%# else %>
+
+      <%#= button_to  sign_up, class: "ui primary button", method: :get %>
+<!--      <div class="ui positive basic button" data-role="button" ><%#= link_to 'SignIn', new_user_session_path  %></div>-->
+<!--      <div class="ui button" tabindex="0" data-role="button" ><%#= link_to 'SignUp', new_user_registration_path  %></div>-->
+    <%#end %>
+<!--  </div>-->
+<!--</div>-->
+
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="/">TimeOutAit</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href=" /document">Document <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/site/index">Assignments</a>
+      </li>
+      <% if user_signed_in? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/site/ps1">Basics1</a>
+          <a class="dropdown-item" href="/quotation">Basics2</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" data-method="delete" href="/logout" ><i class="sign out alternate icon"></i>Log Out</a>
+          <a class="dropdown-item"  href="/edit" ><i class="edit icon"></i>Edit Account</a>
+        </div>
+      </li>
+      <%else %>
+
+
+      <%end %>
+
+    </ul>
+    <%if user_signed_in? %>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+      <%else %>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a class="btn btn-outline-danger" href="/sign_up" role="button" aria-pressed="true">SignUp</a></li>
+      <li><a class="btn btn-outline-success" href="/login" role="button" aria-pressed="true">Login</a></li>
+    </ul>
+    <%end %>
+  </div>
+</nav>

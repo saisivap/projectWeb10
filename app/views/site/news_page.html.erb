@@ -1,0 +1,34 @@
+<div class="ui container">
+<!--<h1>Hey.....!</h1>-->
+<%#= raw @result %>
+<!--=====================================-->
+<%# @result.each do |result| %>
+<!--  <table>-->
+<%#result.each do |key,value| %>
+
+<!--    <tr>-->
+<!--      <td>-->
+<%#= key["title"] %>
+<!--      </td>-->
+<!--    </tr>-->
+
+<%#end %>
+<!--  </table>-->
+<%# end %>
+<table style="text-align: center">
+
+  <% @result.each do |result| %>
+
+    <tr>
+      <!--      <%#= result["url"] %>>-->
+      <!--      <td><a href=result['url']> <%#= image_tag(result['src'], :alt => "rss feed") %></a></td>-->
+      <td><%=link_to image_tag(result['src']), result['url'] %></td>
+      <!--      <td><%# result["src"] %></td>-->
+      <td><%= link_to "Link",result['url'] %></td>
+    </tr>
+    <tr>
+      <td><h3><%= raw result["heading"] %></h3></td>
+    </tr>
+  <% end %>
+
+</table></div>

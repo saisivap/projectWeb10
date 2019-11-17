@@ -1,0 +1,27 @@
+<%= form_with(model: category1, local: true,class:"form-horizontal center",role:"form") do |form| %>
+  <% if category1.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(category1.errors.count, "error") %> prohibited this category1 from being saved:</h2>
+
+      <ul>
+      <% category1.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= form.label :image,"Image" %>
+    <%= form.file_field :image ,class:"ui button"%>
+  </div>
+
+  <div class="actions">
+    <%#= form.submit , class: "btn btn-primary"%>
+    <%= form.submit "Submit",class: "btn btn-primary" %>
+  </div>
+<% end %>

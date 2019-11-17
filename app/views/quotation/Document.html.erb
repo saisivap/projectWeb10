@@ -1,0 +1,236 @@
+<div class="ui container">
+<html>
+<head>
+  <title></title>
+  <style>
+    .pic{
+      width: 100%;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+<a class="btn btn-primary" href="/ps4" role="button">Problem Set4</a>
+<h3>1.What will people be able to learn about in the community that you’re building? Alternatively, if you are automating some collaborative workflow, what work will people accomplish with your system?</h3>
+
+<p>In my system which i am going to build will be helpful for students.Many students likes to have some coffee or sandwich with in the break,but when we go to timeout caffe i takes 10 mins to prepare a sandwich or a coffee.So my application help to the students who can have a coffee or sandwich with in the time by booking the coffee at the particular time from my application.Like i will book a coffee from the class and mention the time that i will come their with in that time to have coffee.</p>
+<hr>
+
+<h3>2.What do you want people to say about your service after a visit?</h3>
+
+<p>By honestly saying that we will provide quality products and we will improve our application as per the user comfortable requirements.We give every update as a notification to users.We will work for students to get a positive feedback and we are hopeful that people will feel that our product really helped students.</p>
+<hr>
+<h3>3.What are the relevant distinct user classes?</h3>
+
+<ol>Based on privileges,my application has three user classes:</ol>
+<li>Administrators/Vender(Shopkeeper ):They have complete access to the application.They can also control the whole users with their functionalities. He/she is the person who can add their items in their shop and they edit the items,item details in the application.They can see how many bookings done per day/per month and they can see floating of bookings. </li>
+<li> Visitors: They can see the main page of the application. They register and login to be a member of application.</li>
+<li>End Users/Customers:They are signed-in users.They can have a booking with their liked items and they can upload a pic what they had.</li>
+<hr>
+<h3>4.What should a user on a smartphone be able to do?</h3>
+
+<p>The users can do all the things that they are going to do in web application.MAy be we in future if the idea went good in many students heads we will plan to do a mobile application.<p>
+
+<hr>
+<h3>5.User Profiles</h3>
+<div class="ui link cards">
+
+  <div class="card" style="width:300px;height: 600px">
+    <div class="image">
+<!--      <img src="/images/avatar2/m.jpg">-->
+<!--      <img src="/images/avatar2/m.jpg" alt="rss feed" />-->
+      <%= image_tag("avatar2/m.jpg",style:"width:300px;height:300px") %>
+    </div>
+    <div class="content">
+      <div class="header">Mahesh</div>
+      <div class="meta">
+        <p>Master student</p>
+        <p>Age 22</p>
+      </div>
+      <div class="description">
+        <p>
+          Marital Status: Single</p>
+        <p> Housing Situation: Student Dorm</p>
+        <p>Income: None
+        </p>
+      </div>
+    </div>
+    <div class="extra content">
+      <span >
+        <p style="font-weight: bold">Short-term goals:</p> She need as coffee with in a time
+      </span></div>
+    <div class="extra content">
+      <span >
+        <p>Long-term goals: Not wasting the time in TimeOUT cafe</p>
+      </span>
+    </div>
+  </div>
+  <div class="card" style="width:300px;height: 600px">
+
+    <div class="image">
+<!--      <img src="/images/avatar2/t.jpg">-->
+      <%= image_tag("avatar2/t.jpg",style:"width:300px;height:300px") %>
+    </div>
+    <div class="content">
+      <div class="header">Kitty</div>
+      <div class="meta">
+        <span class="date">
+           <p>PG student</p>
+        <p>Age 24</p>
+        </span>
+      </div>
+      <div class="description">
+        <p>
+          Marital Status: Single</p>
+        <p> Housing Situation: Student Dorm</p>
+        <p>Income: None
+        </p>
+      </div>
+    </div>
+    <div class="extra content">
+    <span >
+        <p style="font-weight: bold">Short-term goals:</p>  she doesn't like to wait more time for sandwich
+
+      </span></div>
+    <div class="extra content">
+      <span >
+        <p style="font-weight: bold">Long-term goals:</p> Not wasting the time in TimeOUT cafe
+      </span>
+    </div>
+    </div>
+  </div>
+<!--  <div class="card">-->
+<!--    <div class="image">-->
+<!--      <img src="/images/avatar2/h.jpg">-->
+      <%#= image_tag("avatar2/h.jpg") %>
+<!--    </div>-->
+<!--    <div class="content">-->
+<!--      <div class="header">Vasu</div>-->
+<!--      <div class="meta">-->
+<!--        <p>Student</p>-->
+<!--        <p>Age 24</p>-->
+<!--      </div>-->
+<!--      <div class="description">-->
+<!--        <p>-->
+<!--          Marital Status: Married</p>-->
+<!--        <p> Housing Situation: Student Dorm</p>-->
+<!--        <p>Income: None-->
+<!--        </p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="extra content">-->
+<!--        <span >-->
+<!--        <p style="font-weight: bold">Short-term goals:</p>-->
+
+<!--      </span></div>-->
+<!--    <div class="extra content">-->
+<!--      <span>-->
+<!--        <p style="font-weight: bold">Long-term goals:</p>-->
+<!--      </span>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<hr>
+
+<h3>6.For each class of user identified in Exercise 1a, produce a textual or graphical usage scenario for how that user will experience your service.</h3>
+
+Visitors:
+he/she can visit the website
+she/he can see all items and pictures provided in the application
+he/she can not book the item .
+
+Administrator:
+They have complete access to the application.
+They can also control the whole users with their functionalities.
+He/she is the person who can add their items in their shop.
+they edit the items,item details in the application.
+They can update every item in application.
+They can see how many bookings done per day/per month.
+they can see floating graphs of bookings.
+
+Customer:
+They are signed-in users.
+They can have a booking with their liked items.
+They can upload a pic what they had.
+They can provide reviews
+<hr>
+
+<h3>7.Offline Alternatives</h3>
+
+<p>There is an alternative that going to TimeOut cafe and we can have an order mouth order as per the rash you may get the cafe/sandwich or which item do you need .but it depends on the rash in that cafe but by using my application, you can see the orders having booked before and you can go their and you fix the time to get that coffee or you like item.</p>
+<hr>
+
+
+
+<h3>8.Online alternatives</h3>
+
+<p>There is no any application for TimeOutCafe in AIT .So there is no any online alternatives to solve the time waster of waiting to have coffee or any item in a cafe.I think my application may fix the problem with showing the latest orders that their are before we order and we can fix the time to have a coffee or any items which the TIMEOUT CAFE provides. </p>
+<hr>
+<h3>9.Magnet Content</h3>
+
+<p>The main magnetic content of my application is the posts posted by the shopkeeper and the customer posts by having the items.We share our original review as a posts in the application and one thing is about saving time. </p>
+<hr>
+<h3>10.DNS and HOST Name Registration Procedures</h3>
+
+<p>TimeOutAit.com is our main hostname for our application.Now mainly this application for AITans who is facing problem to have snacks during break time,and also the cafe is present in the AIT itself.So for now we would like to host this web application in AIT server.  There are several options for DNS registration, such as BlueHost, GoDaddy, etc. All these domain name registrars provide domain names for purchase. Once our user base has also increased, we could also scale our servers to Amazon, Azure, etc.</p>
+<hr>
+11.
+<h3>12.All social Web applications have users, content, and some kind of user-to-content map. Specify what kind of information each of these areas will have in your application.</h3>
+
+<p>In our Application we have users ,items and admin information and we also have booking information of the customer and our application also contains the pictures of the users if they upload and will have mainly the items pictures and the prices of the particular item. </p> <hr>
+<h3>13.SQL injection</h3>
+<p>This page lists many query methods and options in ActiveRecord which do not sanitize raw SQL arguments and are not intended to be called with unsafe user input. Careless use of these methods can open up code to SQL Injection exploits. The examples here do not include SQL injection from known CVEs and are not vulnerabilites themselves, only potential misuses of the methods.</p>
+<hr>
+<h3>14.Sensitive Data Audit</h3>
+
+<p>For this, you need to encrypt data before it’s sent to the database. This is known as application-level encryption. Use storage-level encryption for all data and application-level encryption for sensitive data.There’s a popular gem called attr_encrypted that integrates nicely with Active Record.
+  The production database password is not stored anywhere on the server or in the repository. It is set only once during the setup of the production server and this is done by an environment variable.As usually we has devise gem it automatically hash the password and adds salt to it so this also very useful for developers.</p>
+<hr>
+<ol><h3>15.User Data Model</h3></ol>
+<li>first_name(string)</li>
+<li>last_name(string)</li>
+<li>stID(varchar)</li>
+<li>email(string)</li>
+<li>username(string)</li>
+<li>is_admin(boolean)</li>
+<li>pic(string)</li>
+<li>Balance(int)</li>
+<hr>
+<h3>16.User Registration and User Login</h3>
+<p>Gerkhin for BDD:</p>
+<p>Feature: User</p>
+<p>Scenario : A web user visiting our application page should be able to register.</p>
+
+<pre>Given I want to register myself in the application
+And I visit the home page
+Then I should see the sign up form
+When I fill up my details in the form and click on “Register” button
+Then I should be directed back to home/login page
+And I should see the message “Successfully registered”
+When I fill in my credentials in Login form and click on “Login” button
+Then I should be redirected to my user page.</pre>
+
+<p>Scenario : An existing user visiting our application page should be able to login.</p>
+
+<pre>Given I am an already registered user.
+And I visit the home page
+Then I should see the login form
+When I fill in my credentials in Login form and click on “Login” button
+Then I should be redirected to my user page.</pre>
+<hr>
+<div class="ui full bordered image">
+  <!--      <img src="/images/avatar2/m.jpg">-->
+  <!--      <img src="/images/avatar2/m.jpg" alt="rss feed" />-->
+  <h3>LogIn</h3>
+  <%= image_tag("avatar2/a.png",class:"pic") %>
+  <h3>SignUp</h3>
+  <%= image_tag("avatar2/b.png",class:"pic") %>
+  <h3>Edit profile</h3>
+  <%= image_tag("avatar2/d.png",class:"pic") %>
+  <h3>Working profile</h3>
+  <%= image_tag("avatar2/c.png",class:"pic") %>
+</div>
+<!--<img class="ui medium bordered image" src="/images/imagesb.png">-->
+</body>
+</html>
+</div>

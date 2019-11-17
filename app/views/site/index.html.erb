@@ -1,0 +1,55 @@
+<div class="ui container">
+<h1>Web Applications</h1>
+
+<table >
+  <tr>
+    <th>Assignment</th>
+    <th>Links To shown</th>
+    <th>Description</th>
+  </tr>
+  <tr >
+    <td ><h3><%= link_to "Problem Set1",'site/ps1' %></h3></td>
+    <td >
+      <ol><li><h4><%= link_to "Something divided by Zero",'site/zero_division_error' %></h4></li><br/>
+        <h4><li><%= link_to "Getting Data from AIT Main Page", site_news_page_path %></li></h4></ol></td>
+    <td >
+      <h4><ol>
+        <li>In the First one i divided the number by the zero and i catch the error and displayed in new View</li>
+        <li>Inthe Secound one i we did all about scraping the data from the AIT main website(ait.ac.th).We brought the titles,pics and given the links to the pics too.</li>
+      </ol></h4>
+    </td>
+  </tr>
+  <tr >
+    <td ><h3><%= link_to "Problem Set2",quotation_path %></h3></td>
+    <td >
+      <ol><li><h4><%= link_to "PS2",quotation_path %></h4></li><br/>
+        <h4><li><%= link_to "SQL", sql_path %></li></h4>
+    <h4><li><%= link_to "Sample-data", sql1_path %></li></h4></ol></td>
+    <td >
+      <h4><ol>
+        <li>Created a Quotaions and added a drop down box to it .importing Database into Xml file and by uploading a xml file it added to Data base</li>
+<!--        <li>Inthe Secound one i we did all about scraping the data from the AIT main website(ait.ac.th).We brought the titles,pics and given the links to the pics too.</li>-->
+      </ol></h4>
+    </td>
+  </tr>
+  <tr>
+    <tr>
+<!--  <td></td>-->
+      <td ><h3><%= link_to "Problem Set3",document_path %></h3></td>
+      <td >
+          <h4><li><%= link_to "Document", document_path %></li></h4>
+
+  </td>
+      <td></td>
+  </tr>
+  <tr>
+    <td><h3><%= link_to "Problem Set4",ps4_path %></h3></td>
+    <td><h4><li><%= link_to "Ps4 Document", ps4_path %></li></h4></td>
+    <td></td>
+  </tr>
+
+</table>
+</div>
+
+
+

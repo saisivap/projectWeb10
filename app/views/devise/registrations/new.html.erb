@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body id="bg1">
+
+
+<div class="ui container">
+<!--<h2>Sign up</h2>-->
+
+<%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%#= render "devise/shared/error_messages", resource: resource %>
+
+<!--  <div class="field">-->
+<!--    <%#= f.label :email %><br />-->
+    <%#= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= f.label :password %>
+    <%# if @minimum_password_length %>
+<!--    <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+<!--    <%# end %><br />-->
+    <%#= f.password_field :password, autocomplete: "new-password" %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+<!--    <%#= f.label :password_confirmation %><br />-->
+    <%#= f.password_field :password_confirmation, autocomplete: "new-password" %>
+<!--  </div>-->
+
+<!--  <div class="actions">-->
+    <%#= f.submit "Sign up" %>
+<!--  </div>-->
+<%# end %>
+
+<%#= render "devise/shared/links" %>
+
+
+
+
+
+  <div class="jumbotron" style="background-color: rgba(0,0,0,0.5);box-shadow: 5px 5px 25px black;color: #DADADA;
+      }">
+<!--<h2>Sign up</h2>-->
+    <div style="text-align: center">
+      <p> Welcome to TimeOut AIT Cafe</p>
+      <h2 class="text-center" style="color: white">
+        <!--  <i class="circular users icon"></i>-->
+
+        <i class="inverted orange circular power off icon"></i>
+        <!--      <i class="fas fa-power-off"></i>-->
+        <!--      <ion-icon name="power"></ion-icon>-->
+        <i class="fa fa-power-off" aria-hidden="true" style="color:orangered"></i>
+        SignUp to continue
+      </h2>
+    </div>
+<div class="ui form">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name),class:"form-horizontal center",role:"form") do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="form-group">
+      <%= f.label :first_name,"First Name" ,class: "col-md-4 control-label"%>
+      <div class="col-md-10">
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
+    </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :last_name,"Last Name" ,class: "col-md-4 control-label"%>
+      <div class="col-md-10">
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control" %>
+    </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :stID,"AIT Student ID ",class: "col-md-4 control-label" %>
+      <div class="col-md-10">
+      <%= f.text_field :stID, autofocus: true, autocomplete: "stID" , class: "form-control"%>
+    </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :phone_number,"Phone Number ",class: "col-md-4 control-label" %>
+      <div class="col-md-10">
+      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone number", class: "form-control" %>
+    </div>
+    </div>
+    <div class="field">
+      <%= f.label :country,"Country",class: "col-md-4 control-label" %>
+      <div class="col-md-10">
+      <%= f.text_field :country, autofocus: true, autocomplete: "stID", class: "form-control" %>
+    </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :email ,"Email",class: "col-md-4 control-label"%>
+      <div class="col-md-10">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password ,"Password",class: "col-md-4 control-label"%>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <div class="col-md-10">
+      <%= f.password_field :password, autocomplete: "new-password" , class: "form-control"%>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation ,"Password Confirmation",class: "col-md-4 control-label"%>
+      <div class="col-md-10">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" , class: "form-control"%>
+    </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up",class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+<%= render "devise/shared/links" %>
+
+</div>
+</div>
+</body>
+</html>

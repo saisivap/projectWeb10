@@ -1,0 +1,64 @@
+<!--<p id="notice"><%#= notice %></p>-->
+
+<!--<p>-->
+<!--  <strong>Name:</strong>-->
+  <%#= @category1.name %>
+<!--</p>-->
+
+<!--<%#= link_to 'Edit', edit_category1_path(@category1) %> |-->
+<%#= link_to 'Back', category1s_path %>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron" style="background-color: rgba(0,0,0,0.5);box-shadow: 5px 5px 25px black;color: #DADADA;
+        }">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="text-center">
+          <% if @category1.image.attached? %>
+            <%= image_tag(@category1.image, :class=> " rounded ",style: "height:200px;width:200px")  %>
+          <%else %>
+            <%= image_tag "avatar2/coming_soon.jpg", class: "rounded",style: "height:200px;width:200px" %>
+          <%end %>
+        </div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-center">
+            <div class="card border-light mb-3" style="max-width: 18rem;">
+              <div class="card-header" ><h3 style="color:red">Category:</h3><h3 style="color:black"><%= @category1.name %></h3></div>
+              <div class="card-body">
+                <h5 class="card-title">Light card title</h5>
+                <p class="card-text">
+                  <% if user_signed_in? && current_user.admin==true %>
+                  <div class="description">
+                    <!--              Elliot Fu is a film-maker from New York.-->
+                    <!--              <p>-->
+                    <!--                <button class="positive ui button"></button>-->
+                    <%= link_to 'Edit', edit_category1_path(@category1),class:"btn btn-danger" %>
+                    <%= link_to 'Back', category1s_path ,class:"btn btn-primary"%>
+                    <!--              </p>-->
+                  </div>
+                <%else %>
+                  <div class="description">
+                    <%= link_to 'Back',   category1s_path  ,class:"negative ui button"%>
+                  </div>
+                <%end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

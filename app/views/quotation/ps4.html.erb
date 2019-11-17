@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="ui container">
+  <div class="ui column">
+    <h3>
+      1)Design your content data model and discuss the implications of your design choices with potential
+      users of the system. In general, there should be at least one category of user-submitted content with
+      authoring workflow specific to your project and at least one question and answer forum. However,
+      the specifics will be very dependent on your project’s requirements. Document the design and your
+      discussions on your site.
+    </h3>
+    <div class="container" style="width:100%;height: 100%">
+    <%= image_tag("avatar2/ps4.jpg",style:"width:100%;height:100%") %>
+  </div>
+  </div>
+  <h1>2)WorkFlow from both admin and user with their data models.</h1>
+  <h1>Users:-</h1>
+  <p>Users are the customers who are registered to the site.they can visit the site and they can book the items like coffee and sandwich.In users we also have admin who can ban the users and can added the items and categories to the application.</p>
+
+  <pre>The data model for User is :-
+
+user_id: integer,
+user_email: string,
+encrypted_password: string,
+user_first_name: string,
+user_ last_name: string,
+user_stID: string,
+balance: integer,
+admin: boolean,
+phone_number: string,
+country: string</pre><hr>
+
+  <h1>Category</h1>
+  <p>Category is one of the things in my project.Only the admin can add the category into the application only he can edit the category and delete it.Every added category that added by the admin users can see in the form of  pictures.</p>
+
+  <pre>The data model for Category:-
+
+Category_id:integer,
+Category_name:string</pre>
+
+  <h1>Items</h1>
+
+  <p>Items is another thing in my application only after selecting category we can see the items belongs to that category.Only the Admin can add the items into the application by selecting the category.The added items every user can see them.They can click into that item in application to book the item or it added to cart.</p>
+
+  <pre>The data model for Item:-
+
+Item_id: integer,
+item_name: string,
+item_description: text,
+category_id: integer,
+price: float</pre><hr>
+
+  <h1>Booking</h1>
+
+  <p>Booking has the booking details of the user and the item and the quantity of the items and it also contains the price of the item.Next while the customer booking the item the user must login to the application.</p>
+
+  <pre>The data Model for Booking:-
+Booking_id:integer,
+Item_id:integer
+Quantity:integer
+Total_price:float
+expected_item:TimeStamp
+Is_ready:boolean
+Is_paid:boolean</pre><hr>
+
+  <h1>Post</h1>
+  <p>Next is posts in my application.every customer who had registered in my application can post a picture while having coffee or sandwich.But it is possible when a user login to appliaction.Post contains description and contains the users id who posted the post.</p>
+
+  <pre>The data Model for Post :-
+
+post_id: integer,
+post_description: text,
+user_id: integer, </pre><hr>
+  <h1>
+    3)Content Versioning System
+
+  </h1>
+  <h3>
+
+    Items,categories and Post will be the only content will be versioning system of some kind,due to the
+    need of the users the functionalities will be increase.
+    <br>The web application maintains  the
+    Booking history.<br><br><br>The main content could have versioning are the needs of the statistics of how many users are visiting the cafe per day and the comments in the post like instagram .<br><br><br>Another content versioning is like to track the Orders of the cafe while the customers are booking a item.One more and last functional versioning is while a user likes the post another user should reload the page so i will come out that problem using a ActionCables
+  </h3>
+
+  <hr>
+  <h1>4).User Registration and User Login</h1>
+  <p>Gerkhin for BDD:</p>
+  <p>Feature: User</p>
+  <p>Scenario : A web user visiting our application page should be able to register.</p>
+
+  <pre>Given I want to register myself in the application
+And I visit the home page
+Then I should see the sign up form
+When I fill up my details in the form and click on “Register” button
+Then I should be directed back to home/login page
+And I should see the message “Successfully registered”
+When I fill in my credentials in Login form and click on “Login” button
+Then I should be redirected to my user page.</pre>
+
+  <p>Scenario : An existing user visiting our application page should be able to login.</p>
+
+  <pre>Given I am an already registered user.
+And I visit the home page
+Then I should see the login form
+When I fill in my credentials in Login form and click on “Login” button
+Then I should be redirected to my user page.</pre>
+  <hr>
+
+
+
+</div>
+
+</body>
+</html>
