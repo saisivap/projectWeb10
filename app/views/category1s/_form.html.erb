@@ -1,3 +1,20 @@
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--  <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--  <title>Document</title>-->
+<!--</head>-->
+<!--<body >-->
+<!--<div class="container">-->
+
+<!--<div class="row center">-->
+<!--  <div class="col-md-3"></div>-->
+<!--  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-10">-->
+<!--<div class="jumbotron" style="background-color: rgba(0,0,0,0.5);box-shadow: 5px 5px 25px black;color: #DADADA;-->
+<!--    }">-->
+<!--  <div class="ui from">-->
 <%= form_with(model: category1, local: true,class:"form-horizontal center",role:"form") do |form| %>
   <% if category1.errors.any? %>
     <div id="error_explanation">
@@ -12,16 +29,28 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name ,class: "col-md-10 control-label"%>
+    <div class="col-md-10">
+    <%= form.text_field :name , autofocus: true, autocomplete: "name", class: "form-control" %>
+  </div>
   </div>
   <div class="form-group">
-    <%= form.label :image,"Image" %>
-    <%= form.file_field :image ,class:"ui button"%>
+    <%= form.label :image,"Image" ,class: "col-md-10 control-label"%>
+    <div class="col-md-10">
+    <%= form.file_field :image , autofocus: true, autocomplete: "first_name", class: "ui buttonform-control" %>
+  </div>
   </div>
 
-  <div class="actions">
+  <div class="actions col-md-10 control-label">
     <%#= form.submit , class: "btn btn-primary"%>
-    <%= form.submit "Submit",class: "btn btn-primary" %>
+    <%#= form.submit "Submit",class: "btn btn-outline-primary" %>
+    <%= form.submit "Submit",class: "btn btn-dark" %>
   </div>
 <% end %>
+<!--</div>-->
+<!--</div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
