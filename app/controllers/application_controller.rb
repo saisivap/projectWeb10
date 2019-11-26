@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
   #   end
   # end
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name,:last_name,:stID,:phone_number,:country])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name,:last_name,:stID,:phone_number,:country])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name,:last_name,:stID,:phone_number,:country,:image])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name,:last_name,:stID,:phone_number,:country,:image])
   end
   def admin_user
     redirect_to(root_path) unless current_user && current_user.admin?

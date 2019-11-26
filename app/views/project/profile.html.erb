@@ -1,0 +1,68 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container " >
+    <div class="row justify-content-between">
+      <div class="col-lg-4 col-md-4 col-sm-12 fixed1" align="center" >
+
+        <%#=@user.first_name %>
+<!--        <div class="col-md-4">-->
+          <div class="card profile-card-3">
+            <div class="background-block">
+              <img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="profile-sample1" class="background"/>
+            </div>
+            <div class="profile-thumb-block">
+<!--              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="profile-image" class="profile"/>-->
+              <% if @user.image.attached? %>
+
+                <%= image_tag(post.user.image, :class=> " profile mr-2")  %>
+
+              <%else %>
+                <%= image_tag "avatar2/user_blank_pic.jpg", :class=> " profile mr-2" %>
+
+              <%end %>
+            </div>
+            <div class="card-content">
+              <h3><%=@user.first_name %></h3><h5><%=@user.stID %></h5>
+<!--                <div class="icon-block"><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>-->
+                <div class="icon-block">
+                  <%if user_signed_in? && current_user==@user %>
+                  <%= link_to"Edit profile",  edit_user_registration_path%>
+                <%end %>
+                    </div>
+            </div>
+          </div>
+<!--          <p class="mt-3 w-100 float-left text-center"><strong>Modren Profile Card</strong></p>-->
+<!--        </div>-->
+      </div>
+      <div class="col-lg-8 col-md-8" style="border: 1px solid black" id="bg_posts">
+        <%#=@user.first_name %>
+        <div class="row">
+        <%Post.where("user_id":current_user).each do |p| %>
+<!--        @items = Item.where("category1_id":params['category1_id']).all-->
+          <%#= image_tag(p.image) %>
+          <div class="col-lg-4  col-md-4 mb-4 col-sm-10 offset-sm-0" >
+
+            <div class="card profile-card-5">
+              <div class="card-img-block">
+                     <%= image_tag(p.image, :class=> " card-img-top ",style: "height:100%;width:100%")  %>
+              </div>
+            </div>
+<!--            mahesh-->
+          </div>
+
+          <%end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -3,6 +3,6 @@ class Category1 < ApplicationRecord
 
   has_one_attached :image
   # has_one_attached: image
-
+  has_many :items
   # has_many :items
 end

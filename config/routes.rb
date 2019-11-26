@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :posts
   resources :category1s do
     resources :items
   end
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
 
   get 'document',to:'quotation#Document'
   get 'ps4',to:'quotation#ps4'
-
+  get 'profile_me/:id',to:'project#profile',as:'profile_me'
   # root to:'project#index'
   root to:"category1s#index"
 end
