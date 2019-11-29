@@ -37,7 +37,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
-<body>
+<body style="background-color: rgba(200,0,0,0.2)">
+<div class="container-fluid" id="bg3">
   <div class="container">
     <div class="bg-modal">
       <div class="model-content">
@@ -97,6 +98,8 @@
             </div>
             <div class="card-footer text-muted text-center">
               <%=time_ago_in_words(post.created_at) %>  ago
+              <%=(post.created_at).to_i - (DateTime.now).to_i %>  ago
+              <%=(DateTime.now).to_i %>  ago
             </div>
           </div>
 <!--          <p class="mt-3 w-100 float-left text-center"><strong>Card with Floting Picture</strong></p>-->
@@ -106,6 +109,7 @@
 
       </div>
     </div>
+  </div>
   </div>
 
 </body>

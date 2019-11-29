@@ -34,12 +34,23 @@
   background-image: image-url("avatar2/bg.jpg");
   width:100%;
   height: 100%;
-  //opacity: 0.45;
+  opacity: 0.45;
   //background-opacity:1;
   background-size:cover ;
   background-attachment: fixed;
   overflow-x: hidden;
   background-repeat: no-repeat;
+}
+#bg3{
+  background-image: image-url("avatar2/bg2.jpg");
+  width:100%;
+  height: 100%;
+  //opacity: 0.45;
+  //background-opacity:1;
+  background-size:cover ;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  //background-repeat: no-repeat;
 }
  #bg_posts{
    background-image: image-url("avatar2/bg_posts.jpeg");
@@ -185,7 +196,7 @@
   width:100%;
   height:100%;
   border-radius:5px;
-  box-shadow:0 0 10px rgba(0,0,0,0.63);
+  box-shadow:0 0 15px rgba(150,0,0,0.9);
 }
 .profile-card-5 h5{
   color:#4E5E30;
@@ -206,7 +217,7 @@
   //alignment: right;
   //align-items: right;
   max-width: 100px;  opacity: 1;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 20px rgba(0, 255, 0, 0.8);
   border: 2px solid rgba(255, 255, 255, 1);
 }
 .fixed{

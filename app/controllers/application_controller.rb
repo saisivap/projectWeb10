@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
   def admin_user
     redirect_to(root_path) unless current_user && current_user.admin?
   end
+
+  def show_the_cart_items
+
+  end
 end

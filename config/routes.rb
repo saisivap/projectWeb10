@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :bcarts, except: [:edit,:show,:new,:update]
   resources :posts
   resources :category1s do
     resources :items
@@ -34,6 +35,8 @@ Rails.application.routes.draw do
   get 'document',to:'quotation#Document'
   get 'ps4',to:'quotation#ps4'
   get 'profile_me/:id',to:'project#profile',as:'profile_me'
+  get "addcart",to:'project#add'
+  get "viewcart",to:'project#cart'
   # root to:'project#index'
   root to:"category1s#index"
 end

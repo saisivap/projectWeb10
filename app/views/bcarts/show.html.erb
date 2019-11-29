@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @bcart.item %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bcart.user %>
+</p>
+
+<%= link_to 'Edit', edit_bcart_path(@bcart) %> |
+<%= link_to 'Back', bcarts_path %>
