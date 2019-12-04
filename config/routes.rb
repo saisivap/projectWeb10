@@ -37,6 +37,11 @@ Rails.application.routes.draw do
   get 'profile_me/:id',to:'project#profile',as:'profile_me'
   get "addcart",to:'project#add'
   get "viewcart",to:'project#cart'
+  get "myposts",to:'project#myposts'
+  get "booking",to:'project#booking'
+  get "myorders",to:'project#myorders'
+  get "myadminorders",to:'project#adminorders'
+  get "payment",to:'project#payment'
   # root to:'project#index'
   root to:"category1s#index"
 end

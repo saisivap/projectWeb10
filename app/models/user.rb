@@ -8,5 +8,5 @@ class User < ApplicationRecord
   # belongs_to :bcart
   has_many :bcart
   has_many :items,through: :bcart
-
+  has_many :bookings
 end

@@ -1,6 +1,98 @@
-<h1>Editing Item</h1>
+<!--<h1>Editing Item</h1>-->
 
-<%= render 'form', item: @item %>
+<%#= render 'form', item: @item %>
 
-<%= link_to 'Show', category1_item_path(@item) %> |
-<%= link_to 'Back', category1_items_path %>
+<!--<%#= link_to 'Show', category1_item_path(@item) %> |-->
+<%#= link_to 'Back', category1_items_path %>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      /*font-weight: bold;*/
+    }
+  </style>
+</head>
+<body id="bg2">
+<div class="container">
+
+  <div class="row center">
+    <!--  <div class="col-md-3"></div>-->
+    <div class=" col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-10 offset-md-0 col-sm-12 offset-sm-0">
+      <div class="jumbotron" id="jum" style="background-color: rgba(105,100,0,0.25);box-shadow: 15px 15px 5px rgba(1,10,0,0.5);color: #DADADA;
+          }">
+        <h1 style="text-align: center">New Item</h1>
+        <div class="ui from">
+
+
+          <% item= @item %>
+          <%= form_with(model: [@item], local: true,url: category1_item_path,class:"form-horizontal center",role:"form") do |form| %>
+            <% if item.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+                <ul>
+                  <% item.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="field">
+              <%= form.label :name ,class: "col-md-10 control-label"%>
+              <div class="col-md-10">
+                <%= form.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label :description,class: "col-md-10 control-label" %>
+              <div class="col-md-10">
+                <%= form.text_area :description , autofocus: true, autocomplete: "description", class: "form-control",rows:"1" ,cols:"50"%>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= form.label :category1_id ,class: "col-md-10 control-label"%>
+              <%#= form.text_field :category1_id %>
+              <div class="col-md-10">
+                <%= text_field_tag(Category1,value=Category1.find(params["category1_id"]).name,disabled: true, autofocus: true, autocomplete: "name", class: "form-control") %>
+              </div>
+            </div>
+            <div class="field">
+              <%= form.label :image,"Image" ,class: "col-md-10 control-label"%>
+              <div class="col-md-10">
+                <%= form.file_field :image ,class:"btn btn-info col-md-3"%>
+              </div>
+            </div>
+            <div class="field">
+              <%= form.label :price,class: "col-md-10 control-label" %>
+              <div class="col-md-10">
+                <%= form.text_field :price, autofocus: true, autocomplete: "name", class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="actions col-md-10 control-label">
+              <%= form.submit class:"btn btn-warning" %>
+            </div>
+          <% end %>
+
+
+<%#= link_to 'Back', category1_items_path %>
+          <div class="some col-md-10 control-label" ,style="color:red">
+            <%= link_to 'Back', category1s_path ,class: "col-xl-2 col-lg-2 col-md-2 col-sm-3 btn btn-danger col-md-1",color:"red"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h3 style="font-weight: bold;text-align: center;padding: 20px">My Orders</h3>
+  <div class="row justify-content-center">
+<!--    <h3 style="font-weight: bold;text-align: center">My Orders</h3>-->
+    <%@myorders.each do |mo| %>
+
+      <%((mo.items).split(",")).each do |l| %>
+<!--        <h4>Order Id:<%#= mo.id %></h4>-->
+<!--        <h5>Item Category:<%#= Item.find(l.to_i).category1.name %></h5>-->
+<!--        <h5>Item Name:<%#= Item.find(l.to_i).name %></h5>-->
+<!--        <h5>Item description:<%#= Item.find(l.to_i).description %></h5>-->
+<!--        <h5>Item Price:<%#= Item.find(l.to_i).price %></h5>-->
+        <div class="col-lg-4 col-md-4 col-sm-6" >
+        <div class="card" style="width: 18rem;">
+<!--          <img src="..." class="card-img-top" alt="...">-->
+          <% if Item.find(l.to_i).image.attached? %>
+
+            <%= image_tag( Item.find(l.to_i).image, :class=> " card-img-top",style:"height: 200px")  %>
+
+          <%else %>
+            <%= image_tag "avatar2/coming_soon.jpg", :class=> " profile mr-2" %>
+
+          <%end %>
+          <div class="card-body"
+          <%if mo.is_payed==false %>
+              style="background-color: red"
+              <%else %>
+            style="background-color: lightgreen"
+          <%end %>>
+            <h5 class="card-title">Order Id:<%= mo.id %></h5>
+            <p class="card-text">
+              <p> Category:<%= Item.find(l.to_i).category1.name %></p>
+              <p> Name:<%= Item.find(l.to_i).name %></p>
+              <p> description:<%= Item.find(l.to_i).description %></p>
+
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h5>Item Price:<span>&#3647;</span><%= Item.find(l.to_i).price %></h5></li>
+            <li class="list-group-item">Order Date<%=(mo.created_at).to_datetime.to_s %></li>
+
+<!--            <li class="list-group-item">Vestibulum at eros</li>-->
+          </ul>
+          <div class="card-body">
+<!--            <a href="#" class="card-link">Card link</a>-->
+<!--            <a href="#" class="card-link">Another link</a>-->
+            <%if mo.is_payed==false %>
+            <span style="color:red;font-weight: bold">  <%=" On The process and you have to pay the money" %></span>
+            <% else  %><span style="color:green;font-weight: bold">
+                <%="The process done and money was payed"  %></span>
+            <%end %>
+          </div>
+        </div>
+        </div>
+      <%end %>
+
+    <%end %>
+
+  </div>
+  </div>
+</body>
+</html>

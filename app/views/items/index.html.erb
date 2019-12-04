@@ -89,13 +89,24 @@
                   <div class="left floated " data-tooltip="Book item" data-position="bottom left">
                     <!--                    <h2><%#=link_to 'Items', category1_path(category) ,class:"btn btn-success btn-sm"%></h2>-->
 <!--                    <h2><%#=link_to 'Items',  category1_item_path(params["category1_id"],item) ,class:"btn btn-success btn-sm"%></h2>-->
-                    <h2><%=link_to 'Book',  addcart_path(:item_id => item) ,class:"btn btn-success btn-sm"%></h2>
+                    <h2><%=link_to 'Add To Cart',  addcart_path(:item_id => item) ,class:"btn btn-warning btn-sm"%></h2>
                   </div>
                 <%else %>
+                  <% if user_signed_in? %>
                   <div class="left floated " data-tooltip="Book item" data-position="bottom left">
 <!--                    <h2><%#=link_to 'Items', category1_item_path(params["category1_id"],item) ,class:"btn btn-primary btn-sm"%></h2>-->
-                    <h2><%=link_to 'Book',  addcart_path(:item_id => item) ,class:"btn btn-success btn-sm"%></h2>
+<!--                    <h2><%#=link_to item.price,  addcart_path(:item_id => item) ,class:"btn btn-success btn-sm"%></h2>-->
+                    <button class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Price">
+                      <span>&#3647;</span><%= item.price %>
+                    </button>
+                    <h2><%=link_to 'Add To Cart',  addcart_path(:item_id => item) ,class:"btn btn-warning btn-sm"%></h2>
                   </div>
+                    <%else %>
+                    <div class="left floated " data-tooltip="Book item" data-position="bottom left">
+                      <!--                    <h2><%#=link_to 'Items', category1_item_path(params["category1_id"],item) ,class:"btn btn-primary btn-sm"%></h2>-->
+                      <h2><%=link_to 'Login To Add To Cart',   new_user_session_path ,class:"btn btn-warning btn-sm"%></h2>
+                    </div>
+                    <%end %>
                 <%end %>
 
 

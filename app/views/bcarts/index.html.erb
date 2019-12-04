@@ -1,33 +1,129 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%#= notice %></p>-->
 
-<h1>Bcarts</h1>
+<!--<h1>Bcarts</h1>-->
 
-<table>
-  <thead>
-    <tr>
-      <th>Item</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!--<table>-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th>Item</th>-->
+<!--      <th>User</th>-->
+<!--      <th colspan="3"></th>-->
+<!--    </tr>-->
+<!--  </thead>-->
 
-  <tbody>
-    <% @bcarts.each do |bcart| %>
-      <tr>
-        <% if  (DateTime.now).to_i - (bcart.created_at).to_i   < 259200%>
-        <td><%= bcart.item.name %></td>
-        <td><%= bcart.user.email %></td>
+<!--  <tbody>-->
+  <%# price=0 %>
+    <%# @bcarts.each do |bcart| %>
+
+<!--      <tr>-->
+        <%# if  (DateTime.now).to_i - (bcart.created_at).to_i   < 259200%>
+<!--        <td><%#= bcart.item.name %></td>-->
+<!--        <td><%#= bcart.user.email %></td>-->
 <!--        <td><%#= link_to 'Show', bcart %></td>-->
 <!--        <td><%#= link_to 'Edit', edit_bcart_path(bcart) %></td>-->
-        <td><%= link_to 'Destroy', bcart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <%else %>
-            <% bcart.delete %>
-          <%end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!--        <td><%#= link_to 'Destroy', bcart, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+          <%# price=price+bcart.item.price %>
+          <%#else %>
+            <%# bcart.delete %>
+          <%#end %>
+<!--      </tr>-->
+    <%# end %>
+  <%#= price %>
+<!--  </tbody>-->
+<!--</table>-->
 
-<br>
+<!--<br>-->
 
 <%#= link_to 'New Bcart', new_bcart_path %>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: skyblue;
+      color: white;
+      /*text-align: center;*/
+      alignment: left;
+    }
+  </style>
+</head>
+<body>
+<% price=0 %>
+<% length=0 %>
+
+<div class="container">
+  <% @bcarts.each do |bcart| %>
+
+    <!--      <tr>-->
+    <% if  (DateTime.now).to_i - (bcart.created_at).to_i   < 259200%>
+  <div class="jumbotron" style="background-color: rgba(0,0,0,0.1);box-shadow: 5px 5px 25px black;color: #DADADA;
+      }">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-center">
+          <% if bcart.item.image.attached? %>
+            <%= image_tag(bcart.item.image, :class=> " rounded ",style: "height:200px;width:200px")  %>
+          <%else %>
+            <%= image_tag "avatar2/coming_soon.jpg", class: "rounded",style: "height:200px;width:200px" %>
+          <%end %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-center">
+          <div class="card border-light mb-3" style="max-width: 18rem;">
+            <div class="card-header" >
+              <h6 style="color:red">Category:</h6>
+              <h6 style="color:black"><%= bcart.item.category1.name %></h6>
+            <h6 style="color:yellow">Item:</h6>
+              <h6 style="color:black"><%= bcart.item.name %></h6></div>
+            <div class="card-body">
+              <h5 class="card-title">About Item</h5>
+              <p class="card-text" style="color:black">
+              <h6 style="color:black"><%= bcart.item.description %></h6>
+              <h6 style="color:black"><%= bcart.item.price %></h6>
+
+                <% if user_signed_in? && current_user.admin==true|| current_user==bcart.user %>
+                <div class="description">
+                  <%= link_to 'Destroy', bcart, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+              <%else %>
+                <div class="description">
+                  <%= link_to 'Back',   category1s_path  ,class:"negative ui button"%>
+                </div>
+              <%end %>
+<!--              </p>-->
+<!--            </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--</div>-->
+    <% price=price+bcart.item.price %>
+    <%length=length+1 %>
+    <%else %>
+    <% bcart.delete %>
+    <%end %>
+<!--          </tr>-->
+    <% end %>
+    <%#= price %>
+    <%#= link_to "Booking", booking_path %>
+    </div>
+</body>
+<div class="footer">
+<div class="float-lg-right"></div>
+  <div class="btn btn-warning"><span>&#3647;</span><%= price %></div>
+  <%= link_to "Booking", booking_path ,class:"btn btn-success"%>
+</div>
+</html>

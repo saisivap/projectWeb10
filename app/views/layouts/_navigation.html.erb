@@ -51,7 +51,8 @@
 <!--</div>-->
 
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+<!--<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">-->
   <a class="navbar-brand" href="/">TimeOutAit</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -74,10 +75,16 @@
           <a class="dropdown-item" href="/site/ps1">Basics1</a>
           <a class="dropdown-item" href="/quotation">Basics2</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <a class="dropdown-item" href="/posts">posts</a>
+<!--          <a class="dropdown-item" href="#">Something else here</a>-->
+          <a class="dropdown-item" href="/posts">Posts</a>
           <a class="dropdown-item" data-method="delete" href="/logout" ><i class="sign out alternate icon"></i>Log Out</a>
-          <a class="dropdown-item"  href="/edit" ><i class="edit icon"></i>Edit Account</a>
+<!--          <a class="dropdown-item"  href="/edit" ><i class="edit icon"></i>Edit Account</a>-->
+<!--          <a class="dropdown-item"  href="#test" >Test</a>-->
+          <%= link_to"Profile",profile_me_path(current_user),class:"dropdown-item"%>
+          <%if current_user.admin==true%>
+          <%= link_to"Adminorders",myadminorders_path,class:"dropdown-item"%>
+            <%end %>
+
         </div>
       </li>
       <%else %>
@@ -87,9 +94,9 @@
 
     </ul>
     <%if user_signed_in? %>
-    <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0 ">
 <!--      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-      <a href="/bcarts" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">
+      <a href="/bcarts" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">
         <i class="fas fa-shopping-cart"></i>
         <% array=[] %>
         <%if Bcart.where("user_id":current_user).count >0 %>
@@ -106,7 +113,15 @@
           <%= 0 %>
         <%end %>
       </a>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <div class="" style="padding-left: 10px">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-coins">
+          <%if current_user==" " %>
+            0
+            <%else %>
+          <%=current_user.balance %>
+            <%end %>
+        </i> </button>
+      </div>
     </form>
       <%else %>
     <ul class="nav navbar-nav navbar-right">

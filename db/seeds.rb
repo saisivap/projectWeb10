@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# User.create!([{email:'maheshait@gmail.com',password:'sundaypsm',password_confirmation:'sundaypsm',admin:true}])
-User.create!([{email:'mahesh@gmail.com',password:'sundaypsm',password_confirmation:'sundaypsm',admin:false }])
+User.create!([{email:'maheshait@gmail.com',password:'sundaypsm',password_confirmation:'sundaypsm',admin:true}])
+# User.create!([{email:'mahesh@gmail.com',password:'sundaypsm',password_confirmation:'sundaypsm',admin:false }])
 # Bcart.create!([{user_id:1,item_id:1}])
 # Bcart.create!([{user_id:1,item_id:2}])

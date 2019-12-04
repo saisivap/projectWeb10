@@ -6,8 +6,13 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+
+
 </head>
-<body>
+<body style="
+    /*background-color: #1fc8db;*/
+    /*background-image: linear-gradient(141deg, #9fb8ad 0%, rgba(189, 248, 255, 0.83), rgba(189, 248, 255, 0.1));*/
+    background-image: linear-gradient(to right, rgba(255,0,0,0.2), rgba(0,0,255,0.4));">
   <div class="container " >
     <div class="row justify-content-between">
       <div class="col-lg-4 col-md-4 col-sm-12 mb-4 fixed1" align="center" >
@@ -22,7 +27,7 @@
 <!--              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="profile-image" class="profile"/>-->
               <% if @user.image.attached? %>
 
-                <%= image_tag(post.user.image, :class=> " profile mr-2")  %>
+                <%= image_tag(@user.image, :class=> " profile mr-2")  %>
 
               <%else %>
                 <%= image_tag "avatar2/user_blank_pic.jpg", :class=> " profile mr-2" %>
@@ -34,7 +39,8 @@
 <!--                <div class="icon-block"><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>-->
                 <div class="icon-block">
                   <%if user_signed_in? && current_user==@user %>
-                  <%= link_to"Edit profile",  edit_user_registration_path%>
+                  <%= link_to"Edit Profile",  edit_user_registration_path,style: "font-weight:bold;font-size:15px"%><br/>
+                  <%= link_to"My Orders",   myorders_path,style: "font-weight:bold;font-size:15px"%>
                 <%end %>
                     </div>
             </div>
@@ -43,16 +49,26 @@
 <!--        </div>-->
       </div>
       <div class="col-lg-8 col-md-8" style="border: 1px solid black" id="bg_posts">
+        <h3 style="color: #DADADA;font-family:Impact;letter-spacing: 3px;text-align: center;padding: 20px ">My Posts</h3>
         <%#=@user.first_name %>
         <div class="row">
-        <%Post.where("user_id":current_user).each do |p| %>
+        <%Post.where("user_id":@user).each do |p| %>
+        <%#Post.where("user_id":current_user).each do |p| %>
 <!--        @items = Item.where("category1_id":params['category1_id']).all-->
           <%#= image_tag(p.image) %>
           <div class="col-lg-4  col-md-4 mb-4 col-sm-10 offset-sm-0" >
 
             <div class="card profile-card-5">
               <div class="card-img-block">
+                <%= link_to  myposts_path(anchor: p.id) do  %>
+                  <%if p.image.attached? %>
                      <%= image_tag(p.image, :class=> " card-img-top ",style: "height:100%;width:100%")  %>
+                  <%else %>
+                    <%= image_tag "avatar2/coming_soon.jpg", :class=> " profile mr-2" %>
+
+                  <%#end %>
+                    <%end %>
+                <%end %>
               </div>
             </div>
 <!--            mahesh-->
@@ -63,6 +79,13 @@
       </div>
     </div>
   </div>
+  <div class="container" id="test">
+<!--    Test-->
+    <!-- Trigger/Open The Modal -->
+
+  </div>
+
+
 
 </body>
 </html>

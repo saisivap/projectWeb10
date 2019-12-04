@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_204854) do
+ActiveRecord::Schema.define(version: 2019_12_02_003647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2019_11_28_204854) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_bcarts_on_item_id"
     t.index ["user_id"], name: "index_bcarts_on_user_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "items"
+    t.bigint "user_id"
+    t.float "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "is_payed", default: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -94,7 +104,7 @@ ActiveRecord::Schema.define(version: 2019_11_28_204854) do
     t.string "first_name"
     t.string "last_name"
     t.string "stID"
-    t.integer "balance"
+    t.integer "balance", default: 0
     t.boolean "admin", default: false
     t.string "phone_number"
     t.string "country"
@@ -105,6 +115,7 @@ ActiveRecord::Schema.define(version: 2019_11_28_204854) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bcarts", "items"
   add_foreign_key "bcarts", "users"
+  add_foreign_key "bookings", "users"
   add_foreign_key "items", "category1s"
   add_foreign_key "posts", "users"
 end
